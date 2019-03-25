@@ -12,7 +12,7 @@ public class StartedService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(Constants.TAG, "onCreate() method was invoked");
+        Log.e(Constants.TAG, "onCreate() method was invoked");
     }
 
     @Override
@@ -42,6 +42,9 @@ public class StartedService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(Constants.TAG, "onStartCommand() method was invoked");
         // TODO: exercise 5 - implement and start the ProcessingThread
+        ProcessingThread thread = new ProcessingThread(getBaseContext());
+        thread.start();
+
         return START_REDELIVER_INTENT;
     }
 
